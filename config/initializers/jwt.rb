@@ -1,0 +1,1 @@
+JWT_SECRET_KEY = Rails.application.credentials.devise_jwt_secret_key
