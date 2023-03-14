@@ -3,7 +3,7 @@ class Api::V1::GenresController < ApplicationController
 
   # GET /api/v1/genres
   def index
-    @api_v1_genres = Api::V1::Genre.all
+    @api_v1_genres = Genre.all
 
     render json: @api_v1_genres
   end
@@ -15,7 +15,7 @@ class Api::V1::GenresController < ApplicationController
 
   # POST /api/v1/genres
   def create
-    @api_v1_genre = Api::V1::Genre.new(api_v1_genre_params)
+    @api_v1_genre = Genre.new(api_v1_genre_params)
 
     if @api_v1_genre.save
       render json: @api_v1_genre, status: :created, location: @api_v1_genre
@@ -41,7 +41,7 @@ class Api::V1::GenresController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_api_v1_genre
-      @api_v1_genre = Api::V1::Genre.find(params[:id])
+      @api_v1_genre = Genre.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

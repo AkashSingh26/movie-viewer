@@ -30,6 +30,9 @@ module MovieViewer
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
       end
     end
+
+    config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths += %W(#{config.root}/app/jobs)
     
     config.middleware.use ActionDispatch::Cookies
 

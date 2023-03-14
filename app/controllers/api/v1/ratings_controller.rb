@@ -3,7 +3,7 @@ class Api::V1::RatingsController < ApplicationController
 
   # GET /api/v1/ratings
   def index
-    @api_v1_ratings = Api::V1::Rating.all
+    @api_v1_ratings = Rating.all
 
     render json: @api_v1_ratings
   end
@@ -15,7 +15,7 @@ class Api::V1::RatingsController < ApplicationController
 
   # POST /api/v1/ratings
   def create
-    @api_v1_rating = Api::V1::Rating.new(api_v1_rating_params)
+    @api_v1_rating = Rating.new(api_v1_rating_params)
 
     if @api_v1_rating.save
       render json: @api_v1_rating, status: :created, location: @api_v1_rating
@@ -41,7 +41,7 @@ class Api::V1::RatingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_api_v1_rating
-      @api_v1_rating = Api::V1::Rating.find(params[:id])
+      @api_v1_rating = Rating.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
